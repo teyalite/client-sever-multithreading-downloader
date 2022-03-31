@@ -1,0 +1,15 @@
+{
+    "name": "server",
+    "version": "1.0.0",
+    "description": "Server for ranges download",
+    "main": "server.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "teyalite",
+    "license": "ISC",
+    "dependencies": {
+        "file-type": "^17.1.1"
+    },
+    "type": "module"
+}
