@@ -3,7 +3,7 @@
 The server was build using nodejs.
 The server will run on port 3000.
 > npm install
-Then
+<br/>
 > node server.js
 
 ## Client
