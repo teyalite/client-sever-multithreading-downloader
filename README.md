@@ -2,9 +2,7 @@
 ## Server
 The server was build using nodejs.
 The server will run on port 3000.
-> npm install
-<br/>
-> node server.js
+> npm install && node server.js
 
 ## Client
 Client built using go lang.
