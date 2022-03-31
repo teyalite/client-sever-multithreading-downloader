@@ -32,7 +32,7 @@ func (m *FileMeta) Fetch(url string) error {
 	defer resp.Body.Close()
 
 	if resp.StatusCode != 200 {
-		return fmt.Errorf("Rreceived un-expected status code: %v resp: %v", resp.StatusCode, resp)
+		return fmt.Errorf("Unexpected request response\nstatus code: %v\nresponse: %v", resp.StatusCode, resp)
 	}
 
 	m.FileURL = url

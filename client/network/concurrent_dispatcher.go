@@ -20,7 +20,6 @@ type Dispatcher struct {
 // it returns download status as bool
 func (d *Dispatcher) InitiateConcurrentDispatch() (*chunk.ChunkList, bool) {
 	isDownloadComplete := true
-
 	chunks := chunk.ChunkList{Count: d.ThreadCount, TotalSize: int(d.Meta.ContentLength)}
 	chunks.ComputeChunks()
 
@@ -47,6 +46,7 @@ func (d *Dispatcher) InitiateConcurrentDispatch() (*chunk.ChunkList, bool) {
 		// Downoading individual segments in go routines
 		go func() {
 			defer wg.Done()
+
 			err = d.downloadSegment(request, i, segment)
 			if err != nil {
 				isDownloadComplete = false

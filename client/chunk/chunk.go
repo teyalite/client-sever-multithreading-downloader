@@ -30,7 +30,9 @@ type ChunkList struct {
 
 // ComputeChunks: Compute chunks for a given parts(thread count).
 func (c *ChunkList) ComputeChunks() {
+
 	c.Size = int(float64(c.TotalSize) / float64(c.Count))
+
 	pos := -1
 	for i := 0; i < c.Count; i++ {
 		r := Range{}
@@ -53,6 +55,7 @@ func (c *ChunkList) ComputeChunks() {
 			break
 		}
 		r.End = pos
+
 		c.Segments = append(c.Segments, r)
 	}
 }
@@ -76,14 +79,14 @@ func (c *ChunkList) Merge(outputName string, sessionID string) error {
 		if err != nil {
 			return err
 		}
-		err = os.Remove(fileName)
-		if err != nil {
-			return err
-		}
+		// err = os.Remove(fileName)
+		// if err != nil {
+		// 	return err
+		// }
 		bytesMerged += bytes
 	}
 
-	if bytesMerged == c.TotalSize {
+	if bytesMerged == c.TotalSize+1 || bytesMerged == c.TotalSize {
 		fmt.Println("File downloaded successfully..")
 	} else {
 		return errors.New("File download is incomplete, retry")

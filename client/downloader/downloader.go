@@ -22,7 +22,8 @@ func (d *Downloader) Run() {
 	meta := network.FileMeta{}
 	err := meta.Fetch(d.Flags.URL)
 	if err != nil {
-		fmt.Println("Can't initiate download, file meta info can't be fetched", err)
+		fmt.Println("Can't initiate download, file meta info can't be fetched")
+		fmt.Printf("\033[1;31m%s\033[0m", err)
 		return
 	}
 
